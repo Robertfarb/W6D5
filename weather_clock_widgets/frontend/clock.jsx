@@ -27,10 +27,10 @@ class Clock extends React.Component {
   render () {
     console.log(this.state);
     return (
-      <div class="clock-component">
+      <div className="clock-component">
         <h1>Clock</h1>
-        <div class="clock-wrapper">
-          <h2 class="time-string">{this.state.time.toTimeString()}</h2>
+        <div className="clock-wrapper">
+          <h2 className="time-string">{this.state.time.toTimeString()}</h2>
         </div>
       </div>
     );

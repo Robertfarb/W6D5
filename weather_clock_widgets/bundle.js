@@ -153,7 +153,7 @@ var Clock = function (_React$Component) {
       console.log(this.state);
       return _react2.default.createElement(
         "div",
-        { "class": "clock-component" },
+        { className: "clock-component" },
         _react2.default.createElement(
           "h1",
           null,
@@ -161,10 +161,10 @@ var Clock = function (_React$Component) {
         ),
         _react2.default.createElement(
           "div",
-          { "class": "clock-wrapper" },
+          { className: "clock-wrapper" },
           _react2.default.createElement(
             "h2",
-            { "class": "time-string" },
+            { className: "time-string" },
             this.state.time.toTimeString()
           )
         )
@@ -176,6 +176,78 @@ var Clock = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Clock;
+
+/***/ }),
+
+/***/ "./frontend/tab.jsx":
+/*!**************************!*\
+  !*** ./frontend/tab.jsx ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tab = function (_React$Component) {
+  _inherits(Tab, _React$Component);
+
+  function Tab(info) {
+    _classCallCheck(this, Tab);
+
+    var _this = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this));
+
+    _this.state = {
+      index: 0,
+      info: info
+    };
+
+    return _this;
+  }
+
+  _createClass(Tab, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          this.props.tabInfo.map(function (title) {
+            return _react2.default.createElement(
+              'h1',
+              null,
+              'title'
+            );
+          })
+        )
+      );
+    }
+  }]);
+
+  return Tab;
+}(_react2.default.Component);
+
+exports.default = Tab;
 
 /***/ }),
 
@@ -201,6 +273,10 @@ var _clock = __webpack_require__(/*! ./clock */ "./frontend/clock.jsx");
 
 var _clock2 = _interopRequireDefault(_clock);
 
+var _tab = __webpack_require__(/*! ./tab */ "./frontend/tab.jsx");
+
+var _tab2 = _interopRequireDefault(_tab);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -208,11 +284,14 @@ document.addEventListener("DOMContentLoaded", function () {
   _reactDom2.default.render(_react2.default.createElement(Root, null), root);
 });
 
+var tabInfo = [{ title: 'TO DO', content: 'TODO List' }, { title: 'TO DO2', content: 'TODO List' }, { title: 'TO DO3', content: 'TODO List' }];
+
 function Root() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_clock2.default, null)
+    _react2.default.createElement(_clock2.default, null),
+    _react2.default.createElement(_tab2.default, { tabInfo: tabInfo })
   );
 }
 
