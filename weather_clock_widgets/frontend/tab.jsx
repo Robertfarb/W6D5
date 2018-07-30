@@ -11,13 +11,11 @@ class Tab extends React.Component{
   }
   render(){
     return (
-      <div>
-        <ul>
-          {this.props.tabInfo.map(title => <h1>title</h1>)}
+      <div className="tab-container">
+        <ul className="tab-list">
+          {this.props.tabInfo.map(tab => <h3 className="tab-header">{tab.title}</h3>)}
         </ul>
-
       </div>
-
     );
   }
 

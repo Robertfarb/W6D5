@@ -224,19 +224,19 @@ var Tab = function (_React$Component) {
   }
 
   _createClass(Tab, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
+        "div",
+        { className: "tab-container" },
         _react2.default.createElement(
-          'ul',
-          null,
-          this.props.tabInfo.map(function (title) {
+          "ul",
+          { className: "tab-list" },
+          this.props.tabInfo.map(function (tab) {
             return _react2.default.createElement(
-              'h1',
-              null,
-              'title'
+              "h3",
+              { className: "tab-header" },
+              tab.title
             );
           })
         )
